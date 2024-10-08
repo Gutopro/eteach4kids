@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Code, Gamepad2, Rocket, Users } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Code, Gamepad2, Rocket, Users } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Homepage() {
   return (
@@ -23,15 +24,17 @@ export default function Homepage() {
           </Link>
         </nav>
       </header>
+
       <main className="flex-1">
+        {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
                   Learn to Code, Create, and Have Fun!
                 </h1>
-                <p className="mx-auto max-w-[700px] text-white md:text-xl">
+                <p className="mx-auto max-w-[700px] text-white md:text-xl leading-relaxed">
                   Join eteach4kids and start your exciting journey into the world of programming. Perfect for ages 7-14!
                 </p>
               </div>
@@ -41,6 +44,8 @@ export default function Homepage() {
             </div>
           </div>
         </section>
+
+        {/* Features Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -48,7 +53,7 @@ export default function Homepage() {
                 <Code className="h-12 w-12 text-primary" />
                 <h2 className="text-xl font-bold">Learn Multiple Languages</h2>
                 <p className="text-muted-foreground text-center">
-                  From Scratch to Python, we've got you covered with kid-friendly coding languages.
+                  From Scratch to Python, we&apos;ve got you covered with kid-friendly coding languages.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">
@@ -68,27 +73,33 @@ export default function Homepage() {
             </div>
           </div>
         </section>
+
+        {/* Courses Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Our Courses</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {["Scratch", "Python", "Web Design", "App Inventor", "JavaScript", "Robotics"].map((course) => (
                 <div key={course} className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg bg-background">
-                  <img
+                  <Image
                     alt={`${course} logo`}
                     className="aspect-square overflow-hidden rounded-lg object-contain object-center"
-                    height="100"
+                    height={100}
                     src={`/placeholder.svg?height=100&width=100&text=${course}`}
-                    width="100"
+                    width={100}
                   />
                   <h3 className="text-xl font-bold">{course}</h3>
-                  <p className="text-muted-foreground text-center">Learn the basics of {course} through fun projects.</p>
+                  <p className="text-muted-foreground text-center">
+                    Learn the basics of {course} through fun projects.
+                  </p>
                   <Button variant="outline">Explore Course</Button>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Testimonials Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">What Our Students Say</h2>
@@ -100,13 +111,15 @@ export default function Homepage() {
               ].map((testimonial, index) => (
                 <div key={index} className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg bg-muted">
                   <Users className="h-12 w-12 text-primary" />
-                  <p className="text-muted-foreground text-center italic">"{testimonial.quote}"</p>
+                  <p className="text-muted-foreground text-center italic">&quot;{testimonial.quote}&quot;</p>
                   <p className="font-bold">{testimonial.name}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Signup Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-primary">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -114,7 +127,7 @@ export default function Homepage() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
                   Ready to Start Your Coding Adventure?
                 </h2>
-                <p className="mx-auto max-w-[600px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="mx-auto max-w-[600px] text-white md:text-xl leading-relaxed">
                   Join thousands of kids who are learning to code with eteach4kids. Sign up now for a free trial!
                 </p>
               </div>
@@ -128,7 +141,7 @@ export default function Homepage() {
                 <p className="text-xs text-white">
                   By signing up, you agree to our{" "}
                   <Link className="underline underline-offset-2" href="#">
-                    Terms & Conditions
+                    Terms &amp; Conditions
                   </Link>
                 </p>
               </div>
@@ -136,6 +149,8 @@ export default function Homepage() {
           </div>
         </section>
       </main>
+
+      {/* Footer */}
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">© 2024 eteach4kids. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
@@ -148,5 +163,5 @@ export default function Homepage() {
         </nav>
       </footer>
     </div>
-  )
+  );
 }
